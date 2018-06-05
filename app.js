@@ -1,9 +1,9 @@
-const clearBtn = document.querySelector('.clear-tasks');
-const card = document.querySelector('.card');
-const heading = document.querySelector('h5');
+const addListButton = document.querySelector('#task');
+const todoList = document.querySelector('ul.collection');
+//const heading = document.querySelector('h5');
 
 // Click
-// clearBtn.addEventListener('click', runEvent);
+ addListButton.addEventListener('keydown', createLi);
 // Doubleclick
 // clearBtn.addEventListener('dblclick', runEvent);
 // Mousedown
@@ -19,13 +19,19 @@ const heading = document.querySelector('h5');
 // Mouseout
 // card.addEventListener('mouseout', runEvent);
 // Mousemove
-card.addEventListener('mousemove', runEvent);
+//card.addEventListener('mousemove', runEvent);
 
 // Event Handler
-function runEvent(e) {
-  console.log(`EVENT TYPE: ${e.type}`);
+function createLi() {
+  let listItem = document.createElement('li');
+  listItem.className = "collection-item";
+  listItem.textContent = "List Item"
 
-  heading.textContent= `MouseX: ${e.offsetX} MouseY: ${e.offsetY}`;
+  let listItemLink = document.createElement('a');
+  listItemLink.className = 'delete-item secondary-content';
+  listItemLink.href = "#";
+  listItemLink.innerHTML = '<i class="fa fa-remove"></i>';
 
-  document.body.style.backgroundColor = `rgb(${e.offsetX}, ${e.offsetY}, 40)`;
+  listItem.appendChild(listItemLink);
+  todoList.appendChild(listItem);
 }
