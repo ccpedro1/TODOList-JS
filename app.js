@@ -1,9 +1,9 @@
-const addListButton = document.querySelector('#task');
+const addListButton = document.querySelector('#addTask');
 const todoList = document.querySelector('ul.collection');
 //const heading = document.querySelector('h5');
 
 // Click
- addListButton.addEventListener('keydown', createLi);
+ addListButton.addEventListener('click', createLi);
 // Doubleclick
 // clearBtn.addEventListener('dblclick', runEvent);
 // Mousedown
@@ -25,7 +25,7 @@ const todoList = document.querySelector('ul.collection');
 function createLi() {
   let listItem = document.createElement('li');
   listItem.className = "collection-item";
-  listItem.textContent = "List Item"
+  listItem.textContent = "New Item"
 
   let listItemLink = document.createElement('a');
   listItemLink.className = 'delete-item secondary-content';
@@ -34,4 +34,6 @@ function createLi() {
 
   listItem.appendChild(listItemLink);
   todoList.appendChild(listItem);
+
+  //return listItem
 }
